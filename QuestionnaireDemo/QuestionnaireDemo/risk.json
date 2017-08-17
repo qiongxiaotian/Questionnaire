@@ -1,0 +1,115 @@
+{
+        "question": [
+            {
+                "questionTitle": "1.您目前的年龄？",
+                "questionA": "小于25岁",
+                "questionB": "25-40岁之间",
+                "questionC": "41-60岁之间",
+                "questionD": "大于60岁",
+		"scoreA":3,
+		"scoreB":5,
+		"scoreC":4,
+		"scoreD":1
+            },
+            {
+                "questionTitle": "2.您当前的资产主要构成情况？",
+                "questionA": "只有银行存款（活期或者定期）",
+                "questionB": "主要是银行存款，还有少量国债和基金、蓝筹股",
+                "questionC": "既有股票、基金、股票、理财产品，也有银行存款，前后两者各半",
+                "questionD": "以期货等金融衍生产品和股票投资为主",
+		"scoreA":1,
+		"scoreB":2,
+		"scoreC":3,
+		"scoreD":5
+            },
+            {
+                "questionTitle": "3.您当前用家庭资产多少比例进行投资？",
+                "questionA": "10%之内的资产",
+                "questionB": "10-20%之间",
+                "questionC": "25-50%之间",
+                "questionD": "超过50%",
+		"scoreA":1,
+		"scoreB":2,
+		"scoreC":3,
+		"scoreD":5
+            },
+            {
+                "questionTitle": "4.如果有个为期1年投资项目可参与，投资成功的概率是50%，一旦成功可获得4倍收益，一旦失败则本钱全部损失，对这样的投资您愿意投入的资金量是多少？",
+                "questionA": "一分也不投入",
+                "questionB": "1个月的收入",
+                "questionC": "3个月的收入",
+                "questionD": "6个月或超过6个月的收入",
+		"scoreA":0,
+		"scoreB":2,
+		"scoreC":3,
+		"scoreD":5
+            },
+            {
+                "questionTitle": "5.往往高收益的基金或理财产品伴随着高风险，您准备承担多大的风险？",
+                "questionA": "不愿意让我的钱有任何损失",
+                "questionB": "因为基金有潜在的增值功能，我愿意承担一定的风险",
+                "questionC": "很愿意通过长期投资使资产增值保值，也愿意在此过程中承担风险",
+                "questionD": "我愿意投资最具增长潜力的产品，也愿意为了更高的收益承受大幅度的风险变动",
+		"scoreA":1,
+		"scoreB":2,
+		"scoreC":4,
+		"scoreD":5
+            },
+            {
+                "questionTitle": "6.请问您投资价格波动性的产品有多少年的经验？（具有价格波动的产品包括股票、基金、外汇、期权期货等金融产品）",
+                "questionA": "7-10年",
+                "questionB": "4-7年",
+                "questionC": "1-3年",
+                "questionD": "从来没有或刚刚开始",
+		"scoreA":5,
+		"scoreB":3,
+		"scoreC":2,
+		"scoreD":1
+            },
+            {
+                "questionTitle": "7.通常情况下您一笔投资预备持有的期限是多久？",
+                "questionA": "长期——超过7年",
+                "questionB": "中期——4年到7年",
+                "questionC": "中短期——1年到3年",
+                "questionD": "短期——1年内",
+		"scoreA":5,
+		"scoreB":3,
+		"scoreC":2,
+		"scoreD":1
+            },
+            {
+                "questionTitle": "8.一年中您能最能接受的资产波动范围是？",
+                "questionA": "最多盈利10%，最大亏损5%",
+                "questionB": "最多盈利20%，最大亏损15%",
+                "questionC": "最多盈利40%，最大亏损30%",
+                "questionD": "最多盈利60%，最大亏损50%",
+		"scoreA":1,
+		"scoreB":3,
+		"scoreC":4,
+		"scoreD":5
+            },
+            {
+                "questionTitle": "9.您此次投资的目的是？",
+                "questionA": "就希望能每年分红或者获得固定的收益",
+                "questionB": "希望能获得分红并实现资产的部分升值",
+                "questionC": "两者各半",
+                "questionD": "主要是为了资产升值",
+		"scoreA":1,
+		"scoreB":2,
+		"scoreC":3,
+		"scoreD":4,
+		"scoreE":5
+            },
+            {
+                "questionTitle": "10.如果您刚刚投资就遇到市场调整，您能承受的损失大概是多少？",
+                "questionA": "5%以内",
+                "questionB": "6-20%",
+                "questionC": "21-40%",
+                "questionD": "超过40%",
+		"scoreA":1,
+		"scoreB":2,
+		"scoreC":4,
+		"scoreD":5
+            }
+        ]
+    }
