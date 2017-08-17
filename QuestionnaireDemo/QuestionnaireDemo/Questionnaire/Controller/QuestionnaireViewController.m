@@ -12,14 +12,11 @@
 #import "GotoRiskCell.h"
 #define kScreenW [UIScreen mainScreen].bounds.size.width
 #define kScreenH [UIScreen mainScreen].bounds.size.height
-#define kObjcNull           ((id)[NSNull null])
 @interface QuestionnaireViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, copy) NSArray *dataArray; // 装tableViewCell组的数组
 
-@property (nonatomic, strong) NSMutableArray *cellMarkArray;
-
-@property (nonatomic,strong)NSMutableDictionary *indexDic;
+@property (nonatomic,strong)NSMutableDictionary *indexDic;//记录点击过的信息
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -49,8 +46,64 @@ static NSString * const question = @"GotoRiskCell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([GotoRiskCell class]) bundle:nil] forCellReuseIdentifier:question];
 
     [self.view addSubview:self.tableView];
+    [self setUpFooterViewLabel];
 
 }
+- (void)setUpFooterViewLabel{
+
+    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kScreenW, 50)];
+//    view.backgroundColor = [UIColor redColor];
+
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, kScreenW, 50);
+    [button setTitle:@"提交" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    [button addTarget:self action:@selector(footButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:button];
+
+    self.tableView.tableFooterView = view;
+
+}
+
+- (void)footButtonAction:(UIButton *)sender{
+
+    for (NSInteger i = 0; i<self.dataArray.count; i++) {
+
+
+        NSInteger index = [self.indexDic[[NSString stringWithFormat:@"%ld",(long)i]] integerValue];
+        if (index == 0) {
+//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"请全部选择完成" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
+//            [alert show];
+//
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请全部填写" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *queding = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                //刷新完成
+                [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:i]  atScrollPosition:UITableViewScrollPositionTop animated:YES];
+
+            }];
+
+            [alert addAction:queding];
+//            [self.navigationController pushViewController:alert animated:YES];
+            [self presentViewController:alert animated:YES completion:nil];
+            break;
+        }else{
+
+
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"全部选择" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *queding = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+
+            }];
+
+            [alert addAction:queding];
+            //            [self.navigationController pushViewController:alert animated:YES];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+    }
+}
+
+
+
 
 #pragma - mark 获取商品数据
 - (void)loadData:(BOOL)isRefresh changeType:(BOOL)isChange selectedIndex:(long)selectedIndex{
@@ -158,16 +211,6 @@ static NSString * const question = @"GotoRiskCell";
 }
 
 
-
-
-- (NSMutableArray *)cellMarkArray
-{
-    if (!_cellMarkArray)
-    {
-        _cellMarkArray = [NSMutableArray arrayWithObjects:kObjcNull, kObjcNull, kObjcNull, kObjcNull, kObjcNull, kObjcNull, kObjcNull, kObjcNull, kObjcNull, kObjcNull,nil];
-    }
-    return _cellMarkArray;
-}
 - (NSMutableDictionary *)indexDic{
     if (!_indexDic) {
         _indexDic = [NSMutableDictionary dictionary];
